@@ -1,0 +1,4 @@
+order_id,customer,product,quantity,unit_price,total_amount
+1001,Alice,Laptop,1,1200.00,1200.00
+1002,Bob,Mouse,2,25.00,50.00
+1003,Charlie,Keyboard,1,75.00,75.00

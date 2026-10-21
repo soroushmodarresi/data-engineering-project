@@ -1,0 +1,14 @@
+
+services:
+  object-storage:
+    image: chrislusf/seaweedfs:latest
+    container_name: portfolio-object-storage
+    command: server -s3 -dir=/data -s3.port=8333
+    ports:
+      - "8333:8333"
+    volumes:
+      - seaweedfs_data:/data
+    restart: unless-stopped
+
+volumes:
+  seaweedfs_data:
