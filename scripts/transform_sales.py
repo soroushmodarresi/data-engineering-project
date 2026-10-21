@@ -5,7 +5,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-INPUT_FILE = PROJECT_ROOT / "data" / "raw" / "sales.csv"
+INPUT_FILE = PROJECT_ROOT / "data" / "raw" / "sales_from_lake.csv"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
 OUTPUT_FILE = OUTPUT_DIR / "sales_clean.csv"
 

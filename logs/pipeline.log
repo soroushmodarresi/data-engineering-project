@@ -1,0 +1,40 @@
+2026-10-21 14:26:40,417 | INFO | Pipeline started
+2026-10-21 14:26:40,417 | INFO | Starting step: Extract sales data
+2026-10-21 14:26:40,497 | INFO | Completed step: Extract sales data
+2026-10-21 14:26:40,497 | INFO | Starting step: Transform sales data
+2026-10-21 14:26:40,582 | INFO | Completed step: Transform sales data
+2026-10-21 14:26:40,582 | INFO | Starting step: Load data into SQL Server
+2026-10-21 14:26:40,791 | INFO | Completed step: Load data into SQL Server
+2026-10-21 14:26:40,791 | INFO | Pipeline completed successfully
+2026-10-21 14:28:14,970 | INFO | Pipeline started
+2026-10-21 14:28:14,970 | INFO | Starting step: Extract sales data
+2026-10-21 14:28:15,057 | INFO | Completed step: Extract sales data
+2026-10-21 14:28:15,058 | INFO | Starting step: Transform sales data
+2026-10-21 14:28:15,143 | INFO | Completed step: Transform sales data
+2026-10-21 14:28:15,143 | INFO | Starting step: Load data into SQL Server
+2026-10-21 14:28:15,360 | INFO | Completed step: Load data into SQL Server
+2026-10-21 14:28:15,360 | INFO | Pipeline completed successfully
+2026-10-21 14:35:21,638 | INFO | Pipeline started
+2026-10-21 14:35:21,638 | INFO | Starting step: Extract sales data
+2026-10-21 14:35:21,724 | INFO | Completed step: Extract sales data
+2026-10-21 14:35:21,724 | INFO | Starting step: Upload raw files to data lake
+2026-10-21 14:35:22,370 | INFO | Completed step: Upload raw files to data lake
+2026-10-21 14:35:22,370 | INFO | Starting step: Download raw CSV from data lake
+2026-10-21 14:35:22,980 | INFO | Completed step: Download raw CSV from data lake
+2026-10-21 14:35:22,980 | INFO | Starting step: Transform sales data
+2026-10-21 14:35:23,070 | INFO | Completed step: Transform sales data
+2026-10-21 14:35:23,070 | INFO | Starting step: Load data into SQL Server
+2026-10-21 14:35:23,297 | INFO | Completed step: Load data into SQL Server
+2026-10-21 14:35:23,298 | INFO | Pipeline completed successfully
+2026-10-21 14:38:22,385 | INFO | Pipeline started
+2026-10-21 14:38:22,385 | INFO | Starting step: Extract sales data
+2026-10-21 14:38:22,468 | INFO | Completed step: Extract sales data
+2026-10-21 14:38:22,468 | INFO | Starting step: Upload raw files to data lake
+2026-10-21 14:38:23,083 | INFO | Completed step: Upload raw files to data lake
+2026-10-21 14:38:23,084 | INFO | Starting step: Download raw CSV from data lake
+2026-10-21 14:38:23,659 | INFO | Completed step: Download raw CSV from data lake
+2026-10-21 14:38:23,659 | INFO | Starting step: Transform sales data
+2026-10-21 14:38:23,740 | INFO | Completed step: Transform sales data
+2026-10-21 14:38:23,741 | INFO | Starting step: Load data into SQL Server
+2026-10-21 14:38:23,978 | INFO | Completed step: Load data into SQL Server
+2026-10-21 14:38:23,978 | INFO | Pipeline completed successfully

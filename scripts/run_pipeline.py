@@ -10,10 +10,11 @@ PROJECT_ROOT = __import__("pathlib").Path(__file__).resolve().parent.parent
 
 STEPS = [
     ("Extract sales data", PROJECT_ROOT / "ingestion" / "extract_sales.py"),
+    ("Upload raw files to data lake", PROJECT_ROOT / "ingestion" / "upload_to_lake.py"),
+    ("Download raw CSV from data lake", PROJECT_ROOT / "ingestion" / "download_from_lake.py"),
     ("Transform sales data", PROJECT_ROOT / "scripts" / "transform_sales.py"),
     ("Load data into SQL Server", PROJECT_ROOT / "scripts" / "load_to_sqlserver.py"),
 ]
-
 def main():
     logger.info("Pipeline started")
 

@@ -1,6 +1,6 @@
 {
     "pipeline": "sales_ingestion",
-    "extracted_at_utc": "2026-10-21T10:21:36.212112+00:00",
+    "extracted_at_utc": "2026-10-21T11:08:22.460959+00:00",
     "record_count": 3,
     "output_file": "G:\\data-engineering-project\\data\\raw\\sales.csv",
     "status": "success"
