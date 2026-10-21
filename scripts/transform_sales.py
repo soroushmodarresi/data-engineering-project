@@ -1,6 +1,6 @@
 
 import csv
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -8,6 +8,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INPUT_FILE = PROJECT_ROOT / "data" / "raw" / "sales.csv"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
 OUTPUT_FILE = OUTPUT_DIR / "sales_clean.csv"
+
+MONEY_FORMAT = Decimal("0.01")
 
 
 def transform_sales():
@@ -43,10 +45,15 @@ def transform_sales():
                 unit_price = Decimal(row["unit_price"])
                 customer = row["customer"].strip()
                 product = row["product"].strip()
-            except (ValueError, InvalidOperation, TypeError) as error:
+            except (ValueError, InvalidOperation, TypeError, AttributeError) as error:
                 raise ValueError(
                     f"Invalid data in row: {row}"
                 ) from error
+
+            if order_id <= 0:
+                raise ValueError(
+                    f"Order ID must be positive: {row}"
+                )
 
             if order_id in seen_order_ids:
                 raise ValueError(f"Duplicate order ID: {order_id}")
@@ -66,17 +73,40 @@ def transform_sales():
                     f"Unit price must be a valid non-negative number: {row}"
                 )
 
+            total_amount = (unit_price * quantity).quantize(
+                MONEY_FORMAT,
+                rounding=ROUND_HALF_UP
+            )
+
+            cleaned_price = unit_price.quantize(
+                MONEY_FORMAT,
+                rounding=ROUND_HALF_UP
+            )
+
+            # Confirm that the cleaned total matches price x quantity.
+            expected_total = (cleaned_price * quantity).quantize(
+                MONEY_FORMAT,
+                rounding=ROUND_HALF_UP
+            )
+
+            if total_amount != expected_total:
+                raise ValueError(
+                    f"Sales total validation failed: {row}"
+                )
+
             seen_order_ids.add(order_id)
-            total_amount = unit_price * quantity
 
             cleaned_records.append({
                 "order_id": order_id,
                 "customer": customer,
                 "product": product,
                 "quantity": quantity,
-                "unit_price": f"{unit_price:.2f}",
+                "unit_price": f"{cleaned_price:.2f}",
                 "total_amount": f"{total_amount:.2f}",
             })
+
+    if not cleaned_records:
+        raise ValueError("The input CSV contains no sales records.")
 
     fields = [
         "order_id",
